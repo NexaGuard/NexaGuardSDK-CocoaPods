@@ -1,0 +1,5 @@
+# ignore temp & macOS junk
+.DS_Store
+xcuserdata/
+.idea/
+
