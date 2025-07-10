@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://nexaguard.com'
   s.license          = { :type => 'Commercial', :file => 'LICENSE' }
   s.author           = { 'NexaGuard' => 'ios@nexaguard.com' }
-  s.source           = { :git => 'https://github.com/NexaGuard/NexaGuardSDK-iOS.git',
+  s.source           = { :git => 'https://github.com/NexaGuard/NexaGuardSDK-CocoaPods.git',
                          :tag => s.version.to_s }
 
   # ---- Platform / Swift ----------------------------------------------------
