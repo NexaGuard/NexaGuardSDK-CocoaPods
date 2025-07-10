@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     disclosure UI. Fully Swift, no tracking, works offline, supports
     TCF v2/GPP strings and custom vendor lists.
   DESC
-  s.homepage         = 'https://nexaguard.com'
+  s.homepage         = 'https://www.nexaguard.com'
   s.license          = { :type => 'Commercial', :file => 'LICENSE' }
   s.author           = { 'NexaGuard' => 'ios@nexaguard.com' }
   s.source           = { :git => 'https://github.com/NexaGuard/NexaGuardSDK-CocoaPods.git',
@@ -22,8 +22,8 @@ Pod::Spec.new do |s|
   # s.source_files  = 'cmp/cmp/**/*.{swift,h,m}'
   # s.public_header_files = 'cmp/cmp/NexaGuardSDK.h'
 
-  # The shared Xcode scheme builds a dynamic xcframework; tell CocoaPods:
-  s.vendored_frameworks = 'cmp/build/NexaGuardSDK.xcframework'
+    # The binary lives in the repo root
+  s.vendored_frameworks = 'NexaGuardSDK.xcframework'
 
   # We don’t use resources inside the framework yet; if you add Lottie JSON,
   # images, etc. later:
