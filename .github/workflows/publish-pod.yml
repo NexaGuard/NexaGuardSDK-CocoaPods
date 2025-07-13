@@ -35,23 +35,41 @@ jobs:
           mv NexaGuardSDK.xcframework ..
           cd ..
 
-      - name: Auto-bump podspec version
-        id: bump
-        run: |
-          CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
-          PATCH=$(echo "$CURRENT" | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}')
-          echo "::set-output name=newver::$PATCH"
-          echo "→ bumping $CURRENT → $PATCH"
-          sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$PATCH'/" NexaGuardSDK.podspec
-
-      - name: Commit, tag & push
-        run: |
-          git config user.name  "$GIT_USER_NAME"
-          git config user.email "$GIT_USER_EMAIL"
-          git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
-          git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀"
-          git tag ${{ steps.bump.outputs.newver }}
-          git push origin main --tags
+          - name: Auto-bump podspec version
+          id: bump
+          run: |
+            # current version inside the podspec
+            CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
+        
+            # highest tag that already exists in the repo
+            LATEST=$(git tag --list --sort=-v:refname | head -n1)
+        
+            echo "Current spec version  : $CURRENT"
+            echo "Highest tag in repo   : $LATEST"
+        
+            BASE_VERSION=$CURRENT
+            if [ "$LATEST" = "$CURRENT" ]; then
+              # tag already taken – bump patch again
+              IFS='.' read -r MAJ MIN PAT <<< "$CURRENT"
+              BASE_VERSION="${MAJ}.${MIN}.$((PAT+1))"
+            fi
+        
+            echo "→ publishing as       : $BASE_VERSION"
+            echo "newver=$BASE_VERSION" >> "$GITHUB_OUTPUT"
+        
+            # write back to podspec
+            sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$BASE_VERSION'/" NexaGuardSDK.podspec
+        
+          - name: Commit, tag & push
+          run: |
+            git config user.name  "$GIT_USER_NAME"
+            git config user.email "$GIT_USER_EMAIL"
+        
+            git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
+            git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀"
+        
+            git tag ${{ steps.bump.outputs.newver }}          
+            git push origin main --tags
 
       - name: Publish to CocoaPods Trunk
         run: |
