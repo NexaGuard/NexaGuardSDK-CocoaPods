@@ -1,5 +1,6 @@
 //
-//  NexaGuardSDK.h
+//  cmp.h
+//  cmp
 //
 //  Created by CYBEXO on 5/22/25.
 //

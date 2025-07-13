@@ -4,9 +4,9 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/NexaGuardSDK.h</key>
+		<key>Headers/cmp.h</key>
 		<data>
-		onN7Wc3fmEuQaWHtouj8enxlJ6k=
+		5ATqm8Gnxe0lrg9YUQX1pK2DnTw=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -14,133 +14,122 @@
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		4BriciQb0iLYUvZUqOs8PN03g2c=
+		lLTjYDr07UzC2gQo5xyD5qxel44=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		nVOX42D1QMrba3PiZyFsFNp0Gl0=
+		qHy1L700u7ifghSxX/CImpEQdpw=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		3/XCrAsKH+3HiDdssWRiT/QS2Zw=
+		uXllPcf31pWfBUunzhva/4nRDpY=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		nVOX42D1QMrba3PiZyFsFNp0Gl0=
+		qHy1L700u7ifghSxX/CImpEQdpw=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BY+NCcFb7QZ3aQS+c0n2aU6aVes=
+		X+AW3fg8l0oHt4L3ebnKnKrC/6E=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		4BriciQb0iLYUvZUqOs8PN03g2c=
+		lLTjYDr07UzC2gQo5xyD5qxel44=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Q2dOh2TF/hUpyyDgu9QeL++HT5E=
+		S1MWp1ZKd9QLNOagmBU/sfun/vA=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		qiXzg2IZ6M+hbRNh1MoK9dFapFo=
+		0VwPbolxAorl0CHof+gctxnp/V0=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Q2dOh2TF/hUpyyDgu9QeL++HT5E=
+		S1MWp1ZKd9QLNOagmBU/sfun/vA=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		IDDE+iL/pSeoPAnqXZf0czEmtZY=
-		</data>
-		<key>Modules/module.modulemap</key>
-		<data>
-		v5pji7ve7S/rlP6pEjatTebRlBM=
+		9Cp7v5L3J0sPqOmvZKG7UQFaJo4=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/NexaGuardSDK.h</key>
+		<key>Headers/cmp.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fiW39GgwJ9T8yX/LWNf+086Lrg7KbrXrHMt2ERAQ00Y=
+			h5eZPxoT1hCD9XHsVngAszcCslP6OCLOZL2QQeLo5Ow=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UHMnHUV9bKNnpE6JuNTqVvIvNio4ilE5UBE3twppUT4=
+			T6xJPryffs3KZvqyMMmXHI0yAYQoXBvrVMCNrIksSjE=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Gnz1icRVGyxIFl6POzHip8j07ty4uqm/acRsEJ9L4R0=
+			wMtNnu02CMnx2BRBhIvfNtzI65h0RRvXBg9fyhhk7n4=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LTIqvfNZ67+66BVa5oet9gBV7ILnFIIiXceuJeXeQH4=
+			OK6IpeQGpYlL2aU9L+4iyQeopp2o7ZEUqZp3g5spOUQ=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Gnz1icRVGyxIFl6POzHip8j07ty4uqm/acRsEJ9L4R0=
+			wMtNnu02CMnx2BRBhIvfNtzI65h0RRvXBg9fyhhk7n4=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VUestlt42UwNhAvF4En0NB2Hteuib5VjV5uG6kmuVLc=
+			LnYKNSLHCwEJ8uabKARl2drpWFEys3djm4viAc5h94E=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UHMnHUV9bKNnpE6JuNTqVvIvNio4ilE5UBE3twppUT4=
+			T6xJPryffs3KZvqyMMmXHI0yAYQoXBvrVMCNrIksSjE=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jmHw8NrbibmJlizHfasjzKLSMch9lhtAtAD5FQWzYG4=
+			+iwKuwzcQXMD/qgnUQMsTJtxoW381htG208WClBMVgg=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FkPRBCGX0kGkPTeHco/RlWXn7Wbvx5WGznbS1/Ei1AM=
+			ibKktNIRcqLJjvLZz4fu0FOByXjLrz3jzITjXRoxkeI=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jmHw8NrbibmJlizHfasjzKLSMch9lhtAtAD5FQWzYG4=
+			+iwKuwzcQXMD/qgnUQMsTJtxoW381htG208WClBMVgg=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LDsKFG/SLVxuBgEeG/+Qe+US8TdviQuxmKtaj0Tro6M=
-			</data>
-		</dict>
-		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			rJNo1m5KMCw3uK/eZiV5HVqbpZpy5MlZxUaF+se7IDk=
+			Ia3bl4SZqtTJmdVN4WoeaxuRl5aJyGTHSKnU+7upafU=
 			</data>
 		</dict>
 	</dict>

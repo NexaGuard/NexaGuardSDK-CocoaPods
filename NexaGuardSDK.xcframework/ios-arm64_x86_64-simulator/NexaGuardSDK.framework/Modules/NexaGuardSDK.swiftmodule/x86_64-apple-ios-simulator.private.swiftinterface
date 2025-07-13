@@ -2,7 +2,6 @@
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
 // swift-module-flags: -target x86_64-apple-ios18.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name NexaGuardSDK
 import Foundation
-@_exported import NexaGuardSDK
 import ObjectiveC
 import Swift
 import UIKit
@@ -112,17 +111,6 @@ extension Foundation.Data {
 }
 public enum NXGCMPUtils {
   public static func encodeTCString(purposeConsents: [Swift.Int], purposeLegitimateInterests: [Swift.Int], specialFeatureOptins: [Swift.Int], vendorConsents: [Swift.Int], vendorLegitimateInterests: [Swift.Int], gvlVendorIds: [Swift.Int], cmpId: Swift.Int = 471, cmpVersion: Swift.Int = 1, consentScreen: Swift.Int = 0, consentLanguage: Swift.String = "EN", vendorListVersion: Swift.Int = 1, policyVersion: Swift.Int = 1, isServiceSpecific: Swift.Bool = false, useNonStandardStacks: Swift.Bool = false, purposeOneTreatment: Swift.Bool = false, publisherCC: Swift.String = "US") -> Swift.String
-  public enum VendorListSegmentType : Swift.UInt {
-    case vendorsDisclosed
-    case vendorsAllowed
-    public init?(rawValue: Swift.UInt)
-    public typealias RawValue = Swift.UInt
-    public var rawValue: Swift.UInt {
-      get
-    }
-  }
-  public static func encodeVendorListSegment(segmentType: NexaGuardSDK.NXGCMPUtils.VendorListSegmentType, vendorIds: [Swift.Int], maxVendorId: Swift.Int) -> Swift.String
-  public static func encodeDisclosedVendorsSegment(disclosedVendorIds: [Swift.Int], gvlVendorIds: [Swift.Int]) -> Swift.String
   public static func decodeTCString(_ tc: Swift.String) -> [Swift.String : Any]?
   public static func encodeTCString(purposes: [Swift.Int], vendors: [Swift.Int], gvlVendorIds: [Swift.Int]) -> Swift.String
   public static func csvString(from ids: [Swift.Int]) -> Swift.String
@@ -153,6 +141,3 @@ public enum ConsentAction : Swift.Equatable {
   public static func clearCache()
   @objc deinit
 }
-extension NexaGuardSDK.NXGCMPUtils.VendorListSegmentType : Swift.Equatable {}
-extension NexaGuardSDK.NXGCMPUtils.VendorListSegmentType : Swift.Hashable {}
-extension NexaGuardSDK.NXGCMPUtils.VendorListSegmentType : Swift.RawRepresentable {}

@@ -1,6 +1,0 @@
-framework module NexaGuardSDK {
-  umbrella header "NexaGuardSDK.h"
-  export *
-
-  module * { export * }
-}
