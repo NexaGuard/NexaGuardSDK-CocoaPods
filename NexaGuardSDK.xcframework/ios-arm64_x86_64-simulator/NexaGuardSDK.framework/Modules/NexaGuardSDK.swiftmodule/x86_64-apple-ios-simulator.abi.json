@@ -6501,7 +6501,14 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/ui\/CMPBannerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 576,
+      "offset": 575,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/ui\/CMPBannerViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 619,
       "length": 5,
       "value": "false"
     },
@@ -6760,28 +6767,28 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NexaGuardCMP.swift",
       "kind": "Array",
-      "offset": 824,
+      "offset": 833,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NexaGuardCMP.swift",
       "kind": "Array",
-      "offset": 868,
+      "offset": 877,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NexaGuardCMP.swift",
       "kind": "Array",
-      "offset": 917,
+      "offset": 926,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NexaGuardCMP.swift",
       "kind": "BooleanLiteral",
-      "offset": 15935,
+      "offset": 14806,
       "length": 5,
       "value": "false"
     },

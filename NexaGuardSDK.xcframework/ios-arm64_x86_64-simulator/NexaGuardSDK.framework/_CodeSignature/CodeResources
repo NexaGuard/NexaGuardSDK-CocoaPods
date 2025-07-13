@@ -14,7 +14,7 @@
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Jc6D4s7RoFcsQZ85jf15UfEaO/M=
+		4BriciQb0iLYUvZUqOs8PN03g2c=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -28,9 +28,13 @@
 		<data>
 		nVOX42D1QMrba3PiZyFsFNp0Gl0=
 		</data>
+		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		BY+NCcFb7QZ3aQS+c0n2aU6aVes=
+		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Jc6D4s7RoFcsQZ85jf15UfEaO/M=
+		4BriciQb0iLYUvZUqOs8PN03g2c=
 		</data>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -43,6 +47,10 @@
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
 		Q2dOh2TF/hUpyyDgu9QeL++HT5E=
+		</data>
+		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		IDDE+iL/pSeoPAnqXZf0czEmtZY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -62,7 +70,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mswqA94OGlPiurUAoT3M9Ze6wYnLNZytcWlHx3XTYnw=
+			UHMnHUV9bKNnpE6JuNTqVvIvNio4ilE5UBE3twppUT4=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -86,11 +94,18 @@
 			Gnz1icRVGyxIFl6POzHip8j07ty4uqm/acRsEJ9L4R0=
 			</data>
 		</dict>
+		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VUestlt42UwNhAvF4En0NB2Hteuib5VjV5uG6kmuVLc=
+			</data>
+		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mswqA94OGlPiurUAoT3M9Ze6wYnLNZytcWlHx3XTYnw=
+			UHMnHUV9bKNnpE6JuNTqVvIvNio4ilE5UBE3twppUT4=
 			</data>
 		</dict>
 		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -112,6 +127,13 @@
 			<key>hash2</key>
 			<data>
 			jmHw8NrbibmJlizHfasjzKLSMch9lhtAtAD5FQWzYG4=
+			</data>
+		</dict>
+		<key>Modules/NexaGuardSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LDsKFG/SLVxuBgEeG/+Qe+US8TdviQuxmKtaj0Tro6M=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

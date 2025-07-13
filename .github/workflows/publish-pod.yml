@@ -1,0 +1,60 @@
+name: Release iOS SDK to CocoaPods
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'NexaGuardSDK.xcframework/**'
+      - 'NexaGuardSDK.podspec'
+
+jobs:
+  publish:
+    runs-on: macos-13   # macOS runner gives you codesign & Xcode CLI
+
+    env:
+      POD_TRUNK_TOKEN: ${{ secrets.POD_TRUNK_TOKEN }}   # <— add in repo secrets
+      GIT_USER_NAME:  NexaGuard-CI
+      GIT_USER_EMAIL: ios@nexaguard.com
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # we need history for tags
+
+      - name: Strip _CodeSignature & re-sign
+        run: |
+          echo "▶︎ Cleaning signatures"
+          rm -rf build && mkdir build
+          cp -R NexaGuardSDK.xcframework build/
+          cd build
+          find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
+          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
+          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
+          rm -rf ../NexaGuardSDK.xcframework
+          mv NexaGuardSDK.xcframework ..
+          cd ..
+
+      - name: Auto-bump podspec version
+        id: bump
+        run: |
+          CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
+          PATCH=$(echo "$CURRENT" | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}')
+          echo "::set-output name=newver::$PATCH"
+          echo "→ bumping $CURRENT → $PATCH"
+          sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$PATCH'/" NexaGuardSDK.podspec
+
+      - name: Commit, tag & push
+        run: |
+          git config user.name  "$GIT_USER_NAME"
+          git config user.email "$GIT_USER_EMAIL"
+          git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
+          git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀"
+          git tag ${{ steps.bump.outputs.newver }}
+          git push origin main --tags
+
+      - name: Publish to CocoaPods Trunk
+        run: |
+          echo "$POD_TRUNK_TOKEN" | pod trunk register ios@nexaguard.com 'CI Bot' --description='CI' || true
+          pod trunk push NexaGuardSDK.podspec --allow-warnings --skip-tests --verbose
+
