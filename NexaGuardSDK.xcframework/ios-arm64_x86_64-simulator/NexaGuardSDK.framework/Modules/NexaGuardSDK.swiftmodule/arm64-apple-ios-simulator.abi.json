@@ -4536,6 +4536,826 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
+        "moduleName": "NexaGuardSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "os.log",
+        "printedName": "os.log",
+        "declKind": "Import",
+        "moduleName": "NexaGuardSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NxgLogLevel",
+        "printedName": "NxgLogLevel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "verbose",
+            "printedName": "verbose",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NexaGuardSDK.NxgLogLevel.Type) -> NexaGuardSDK.NxgLogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NxgLogLevel",
+                    "printedName": "NexaGuardSDK.NxgLogLevel",
+                    "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NexaGuardSDK.NxgLogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NxgLogLevel",
+                        "printedName": "NexaGuardSDK.NxgLogLevel",
+                        "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12NexaGuardSDK11NxgLogLevelO7verboseyA2CmF",
+            "mangledName": "$s12NexaGuardSDK11NxgLogLevelO7verboseyA2CmF",
+            "moduleName": "NexaGuardSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "debug",
+            "printedName": "debug",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NexaGuardSDK.NxgLogLevel.Type) -> NexaGuardSDK.NxgLogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NxgLogLevel",
+                    "printedName": "NexaGuardSDK.NxgLogLevel",
+                    "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NexaGuardSDK.NxgLogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NxgLogLevel",
+                        "printedName": "NexaGuardSDK.NxgLogLevel",
+                        "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12NexaGuardSDK11NxgLogLevelO5debugyA2CmF",
+            "mangledName": "$s12NexaGuardSDK11NxgLogLevelO5debugyA2CmF",
+            "moduleName": "NexaGuardSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "info",
+            "printedName": "info",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NexaGuardSDK.NxgLogLevel.Type) -> NexaGuardSDK.NxgLogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NxgLogLevel",
+                    "printedName": "NexaGuardSDK.NxgLogLevel",
+                    "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NexaGuardSDK.NxgLogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NxgLogLevel",
+                        "printedName": "NexaGuardSDK.NxgLogLevel",
+                        "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12NexaGuardSDK11NxgLogLevelO4infoyA2CmF",
+            "mangledName": "$s12NexaGuardSDK11NxgLogLevelO4infoyA2CmF",
+            "moduleName": "NexaGuardSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "warning",
+            "printedName": "warning",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NexaGuardSDK.NxgLogLevel.Type) -> NexaGuardSDK.NxgLogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NxgLogLevel",
+                    "printedName": "NexaGuardSDK.NxgLogLevel",
+                    "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NexaGuardSDK.NxgLogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NxgLogLevel",
+                        "printedName": "NexaGuardSDK.NxgLogLevel",
+                        "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12NexaGuardSDK11NxgLogLevelO7warningyA2CmF",
+            "mangledName": "$s12NexaGuardSDK11NxgLogLevelO7warningyA2CmF",
+            "moduleName": "NexaGuardSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "error",
+            "printedName": "error",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NexaGuardSDK.NxgLogLevel.Type) -> NexaGuardSDK.NxgLogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NxgLogLevel",
+                    "printedName": "NexaGuardSDK.NxgLogLevel",
+                    "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NexaGuardSDK.NxgLogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NxgLogLevel",
+                        "printedName": "NexaGuardSDK.NxgLogLevel",
+                        "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12NexaGuardSDK11NxgLogLevelO5erroryA2CmF",
+            "mangledName": "$s12NexaGuardSDK11NxgLogLevelO5erroryA2CmF",
+            "moduleName": "NexaGuardSDK"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NexaGuardSDK.NxgLogLevel?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NxgLogLevel",
+                    "printedName": "NexaGuardSDK.NxgLogLevel",
+                    "usr": "s:12NexaGuardSDK11NxgLogLevelO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12NexaGuardSDK11NxgLogLevelO8rawValueACSgSi_tcfc",
+            "mangledName": "$s12NexaGuardSDK11NxgLogLevelO8rawValueACSgSi_tcfc",
+            "moduleName": "NexaGuardSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12NexaGuardSDK11NxgLogLevelO8rawValueSivp",
+            "mangledName": "$s12NexaGuardSDK11NxgLogLevelO8rawValueSivp",
+            "moduleName": "NexaGuardSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12NexaGuardSDK11NxgLogLevelO8rawValueSivg",
+                "mangledName": "$s12NexaGuardSDK11NxgLogLevelO8rawValueSivg",
+                "moduleName": "NexaGuardSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12NexaGuardSDK11NxgLogLevelO",
+        "mangledName": "$s12NexaGuardSDK11NxgLogLevelO",
+        "moduleName": "NexaGuardSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NxgLog",
+        "printedName": "NxgLog",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "enabled",
+            "printedName": "enabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12NexaGuardSDK6NxgLogC7enabledSbvpZ",
+            "mangledName": "$s12NexaGuardSDK6NxgLogC7enabledSbvpZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12NexaGuardSDK6NxgLogC7enabledSbvgZ",
+                "mangledName": "$s12NexaGuardSDK6NxgLogC7enabledSbvgZ",
+                "moduleName": "NexaGuardSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12NexaGuardSDK6NxgLogC7enabledSbvsZ",
+                "mangledName": "$s12NexaGuardSDK6NxgLogC7enabledSbvsZ",
+                "moduleName": "NexaGuardSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12NexaGuardSDK6NxgLogC7enabledSbvMZ",
+                "mangledName": "$s12NexaGuardSDK6NxgLogC7enabledSbvMZ",
+                "moduleName": "NexaGuardSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "tagPrefix",
+            "printedName": "tagPrefix",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12NexaGuardSDK6NxgLogC9tagPrefixSSvpZ",
+            "mangledName": "$s12NexaGuardSDK6NxgLogC9tagPrefixSSvpZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12NexaGuardSDK6NxgLogC9tagPrefixSSvgZ",
+                "mangledName": "$s12NexaGuardSDK6NxgLogC9tagPrefixSSvgZ",
+                "moduleName": "NexaGuardSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12NexaGuardSDK6NxgLogC9tagPrefixSSvsZ",
+                "mangledName": "$s12NexaGuardSDK6NxgLogC9tagPrefixSSvsZ",
+                "moduleName": "NexaGuardSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12NexaGuardSDK6NxgLogC9tagPrefixSSvMZ",
+                "mangledName": "$s12NexaGuardSDK6NxgLogC9tagPrefixSSvMZ",
+                "moduleName": "NexaGuardSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "v",
+            "printedName": "v(_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12NexaGuardSDK6NxgLogC1vyySS_SSs5Error_pSgtFZ",
+            "mangledName": "$s12NexaGuardSDK6NxgLogC1vyySS_SSs5Error_pSgtFZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "d",
+            "printedName": "d(_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12NexaGuardSDK6NxgLogC1dyySS_SSs5Error_pSgtFZ",
+            "mangledName": "$s12NexaGuardSDK6NxgLogC1dyySS_SSs5Error_pSgtFZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "i",
+            "printedName": "i(_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12NexaGuardSDK6NxgLogC1iyySS_SSs5Error_pSgtFZ",
+            "mangledName": "$s12NexaGuardSDK6NxgLogC1iyySS_SSs5Error_pSgtFZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "w",
+            "printedName": "w(_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12NexaGuardSDK6NxgLogC1wyySS_SSs5Error_pSgtFZ",
+            "mangledName": "$s12NexaGuardSDK6NxgLogC1wyySS_SSs5Error_pSgtFZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "e",
+            "printedName": "e(_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12NexaGuardSDK6NxgLogC1eyySS_SSs5Error_pSgtFZ",
+            "mangledName": "$s12NexaGuardSDK6NxgLogC1eyySS_SSs5Error_pSgtFZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:12NexaGuardSDK6NxgLogC",
+        "mangledName": "$s12NexaGuardSDK6NxgLogC",
+        "moduleName": "NexaGuardSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
         "moduleName": "NexaGuardSDK"
       },
       {
@@ -6237,7 +7057,7 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/ui\/PurposeTabViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13676,
+      "offset": 13678,
       "length": 5,
       "value": "false"
     },
@@ -6424,6 +7244,55 @@
       "value": "\"US\""
     },
     {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/utils\/NxgLog.swift",
+      "kind": "IntegerLiteral",
+      "offset": 152,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/utils\/NxgLog.swift",
+      "kind": "IntegerLiteral",
+      "offset": 155,
+      "length": 5,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/utils\/NxgLog.swift",
+      "kind": "IntegerLiteral",
+      "offset": 162,
+      "length": 4,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/utils\/NxgLog.swift",
+      "kind": "IntegerLiteral",
+      "offset": 168,
+      "length": 7,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/utils\/NxgLog.swift",
+      "kind": "IntegerLiteral",
+      "offset": 177,
+      "length": 5,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/utils\/NxgLog.swift",
+      "kind": "BooleanLiteral",
+      "offset": 318,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/utils\/NxgLog.swift",
+      "kind": "StringLiteral",
+      "offset": 434,
+      "length": 9,
+      "value": "\"NXG-CMP\""
+    },
+    {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NexaGuardCMP.swift",
       "kind": "Array",
       "offset": 833,
@@ -6447,7 +7316,7 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NexaGuardCMP.swift",
       "kind": "BooleanLiteral",
-      "offset": 14653,
+      "offset": 14699,
       "length": 5,
       "value": "false"
     },

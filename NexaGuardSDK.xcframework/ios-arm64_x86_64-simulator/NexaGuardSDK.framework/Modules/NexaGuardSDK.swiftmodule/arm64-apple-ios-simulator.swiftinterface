@@ -9,6 +9,8 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os.log
+import os
 public struct BrandingConfig {
   public let logoUrl: Swift.String?
   public let brandColor: Swift.String?
@@ -117,6 +119,24 @@ public enum NXGCMPUtils {
   public static func parseCSV(_ csv: Swift.String) -> [Swift.Int]
   public static func allPurposesGiven(user: [Swift.Int], required: [Swift.Int]) -> Swift.Bool
 }
+public enum NxgLogLevel : Swift.Int {
+  case verbose, debug, info, warning, error
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class NxgLog {
+  public static var enabled: Swift.Bool
+  public static var tagPrefix: Swift.String
+  public static func v(_ tag: Swift.String, _ msg: Swift.String, _ error: (any Swift.Error)? = nil)
+  public static func d(_ tag: Swift.String, _ msg: Swift.String, _ error: (any Swift.Error)? = nil)
+  public static func i(_ tag: Swift.String, _ msg: Swift.String, _ error: (any Swift.Error)? = nil)
+  public static func w(_ tag: Swift.String, _ msg: Swift.String, _ error: (any Swift.Error)? = nil)
+  public static func e(_ tag: Swift.String, _ msg: Swift.String, _ error: (any Swift.Error)? = nil)
+  @objc deinit
+}
 public enum ConsentAction : Swift.Equatable {
   case acceptAll
   case rejectAll
@@ -141,3 +161,6 @@ public enum ConsentAction : Swift.Equatable {
   public static func clearCache()
   @objc deinit
 }
+extension NexaGuardSDK.NxgLogLevel : Swift.Equatable {}
+extension NexaGuardSDK.NxgLogLevel : Swift.Hashable {}
+extension NexaGuardSDK.NxgLogLevel : Swift.RawRepresentable {}
