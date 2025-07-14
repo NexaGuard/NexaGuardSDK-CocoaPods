@@ -28,10 +28,6 @@
 		<data>
 		gp8sGxej0HTw26n9HnwZBUhai+o=
 		</data>
-		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
-		<data>
-		unBU36GCqn17R2/dotb0xF6Ezt4=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -68,13 +64,6 @@
 			<key>hash2</key>
 			<data>
 			l+09XZaSPC/gt9hUOGT80scjHfHTPVts0h9hFq6w6Vw=
-			</data>
-		</dict>
-		<key>Modules/NexaGuardSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			82OXsIhjoYsODGvCCWCaTE77BUbJCHKTJXniANkiPMM=
 			</data>
 		</dict>
 	</dict>
