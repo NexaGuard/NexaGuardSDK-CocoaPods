@@ -6,66 +6,73 @@ on:
     paths:
       - 'NexaGuardSDK.xcframework/**'
       - 'NexaGuardSDK.podspec'
+      - '.github/workflows/publish-pod.yml'     # make edits to this file re-trigger
+  workflow_dispatch:                            # manual “Run workflow” button
 
 jobs:
   publish:
-    runs-on: macos-13   # macOS runner gives you codesign & Xcode CLI
+    runs-on: macos-13          # macOS runner gives you codesign & Xcode CLI
 
     env:
-      POD_TRUNK_TOKEN: ${{ secrets.POD_TRUNK_TOKEN }}   # <— add in repo secrets
+      POD_TRUNK_TOKEN: ${{ secrets.POD_TRUNK_TOKEN }}
       GIT_USER_NAME:  NexaGuard-CI
       GIT_USER_EMAIL: ios@nexaguard.com
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0    # we need history for tags
+    # 1. checkout full history (tags included)
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-      - name: Strip _CodeSignature & re-sign
-        run: |
-          echo "▶︎ Cleaning signatures"
-          rm -rf build && mkdir build
-          cp -R NexaGuardSDK.xcframework build/
-          cd build
-          find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
-          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
-          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
-          cd ..
-          mv build/NexaGuardSDK.xcframework .
+    # 2. strip existing codesign blobs and re-sign the slice we ship
+    - name: Strip _CodeSignature & re-sign
+      run: |
+        echo "▶︎ Cleaning signatures"
+        rm -rf build && mkdir build
+        cp -R NexaGuardSDK.xcframework build/
+        cd build
+        find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
+        codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
+        codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
+        cd ..
+        mv build/NexaGuardSDK.xcframework .
 
-      # ──────────────────────────────
-      #  bump the version **outside** of any run block
-      # ──────────────────────────────
-      - name: Auto-bump podspec version
-        id: bump
-        run: |
-          CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
-          LATEST=$(git tag --list --sort=-v:refname | head -n1)
+    # 3. bump the podspec version until it’s unique
+    - name: Auto-bump podspec version
+      id: bump
+      run: |
+        CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
+        NEW="$CURRENT"
 
-          NEW="$CURRENT"
-          if [ "$LATEST" = "$CURRENT" ]; then
-            IFS='.' read -r MAJ MIN PAT <<< "$CURRENT"
-            NEW="${MAJ}.${MIN}.$((PAT+1))"
-            sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$NEW'/" NexaGuardSDK.podspec
-          fi
+        # keep incrementing patch until the tag is free
+        while git rev-parse "$NEW" >/dev/null 2>&1; do
+          IFS='.' read -r MAJ MIN PAT <<< "$NEW"
+          NEW="${MAJ}.${MIN}.$((PAT+1))"
+        done
 
-          echo "Bumping podspec   : $CURRENT → $NEW"
-          echo "newver=$NEW" >> "$GITHUB_OUTPUT"
+        # update the podspec if we changed the number
+        if [ "$NEW" != "$CURRENT" ]; then
+          sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$NEW'/" NexaGuardSDK.podspec
+        fi
 
-      - name: Commit, tag & push
-        run: |
-          git config user.name  "$GIT_USER_NAME"
-          git config user.email "$GIT_USER_EMAIL"
+        echo "Publishing as version : $NEW"
+        echo "newver=$NEW" >> "$GITHUB_OUTPUT"
 
-          git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
-          git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀"
+    # 4. commit, tag (force-update if CI re-runs), push
+    - name: Commit, tag & push
+      run: |
+        git config user.name  "$GIT_USER_NAME"
+        git config user.email "$GIT_USER_EMAIL"
 
-          # create / update the tag, then push
-          git tag -f ${{ steps.bump.outputs.newver }}
-          git push origin main --tags --force-with-lease
+        git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
+        git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀" || echo "Nothing to commit"
 
-      - name: Publish to CocoaPods Trunk
-        run: |
-          echo "$POD_TRUNK_TOKEN" | pod trunk register ios@nexaguard.com 'CI Bot' --description='CI' || true
-          pod trunk push NexaGuardSDK.podspec --allow-warnings --skip-tests --verbose
+        git tag -f ${{ steps.bump.outputs.newver }}
+        git push origin main --tags --force-with-lease
+
+    # 5. publish to CocoaPods
+    - name: Publish to CocoaPods Trunk
+      run: |
+        echo "$POD_TRUNK_TOKEN" \
+          | pod trunk register ios@nexaguard.com 'CI Bot' --description='CI' || true
+        pod trunk push NexaGuardSDK.podspec --allow-warnings --skip-tests --verbose
