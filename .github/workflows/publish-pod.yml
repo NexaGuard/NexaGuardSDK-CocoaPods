@@ -6,8 +6,8 @@ on:
     paths:
       - 'NexaGuardSDK.xcframework/**'
       - 'NexaGuardSDK.podspec'
-      - '.github/workflows/publish-pod.yml'     # make edits to this file re-trigger
-  workflow_dispatch:                            # manual “Run workflow” button
+      - '.github/workflows/publish-pod.yml'        # edits to this file retrigger the job
+  workflow_dispatch:                               # manual “Run workflow” button
 
 jobs:
   publish:
@@ -19,64 +19,63 @@ jobs:
       GIT_USER_EMAIL: ios@nexaguard.com
 
     steps:
-    # 1. checkout full history (tags included)
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      # 1. checkout full history (tags included)
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    # 2. strip existing codesign blobs and re-sign the slice we ship
-    - name: Strip _CodeSignature & re-sign
-  run: |
-    echo "▶︎ Cleaning signatures"
-    rm -rf build && mkdir build
-    cp -R NexaGuardSDK.xcframework build/
+      # 2. strip existing codesign blobs and re-sign the slice we ship
+      - name: Strip _CodeSignature & re-sign
+        run: |
+          echo "▶︎ Cleaning signatures"
+          rm -rf build && mkdir build
+          cp -R NexaGuardSDK.xcframework build/
 
-    cd build
-    find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
-    codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
-    codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
-    cd ..
+          cd build
+          find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
+          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
+          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
+          cd ..
 
-    # 🔽 NEW – remove the old copy before moving the new one in place
-    rm -rf NexaGuardSDK.xcframework
-    mv build/NexaGuardSDK.xcframework .
+          # replace the xcframework in repo root
+          rm -rf NexaGuardSDK.xcframework
+          mv build/NexaGuardSDK.xcframework .
 
-    # 3. bump the podspec version until it’s unique
-    - name: Auto-bump podspec version
-      id: bump
-      run: |
-        CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
-        NEW="$CURRENT"
+      # 3. bump the podspec version until it’s unique
+      - name: Auto-bump podspec version
+        id: bump
+        run: |
+          CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
+          NEW="$CURRENT"
 
-        # keep incrementing patch until the tag is free
-        while git rev-parse "$NEW" >/dev/null 2>&1; do
-          IFS='.' read -r MAJ MIN PAT <<< "$NEW"
-          NEW="${MAJ}.${MIN}.$((PAT+1))"
-        done
+          # keep incrementing patch until the tag is free
+          while git rev-parse "$NEW" >/dev/null 2>&1; do
+            IFS='.' read -r MAJ MIN PAT <<< "$NEW"
+            NEW="${MAJ}.${MIN}.$((PAT+1))"
+          done
 
-        # update the podspec if we changed the number
-        if [ "$NEW" != "$CURRENT" ]; then
-          sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$NEW'/" NexaGuardSDK.podspec
-        fi
+          if [ "$NEW" != "$CURRENT" ]; then
+            sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$NEW'/" NexaGuardSDK.podspec
+          fi
 
-        echo "Publishing as version : $NEW"
-        echo "newver=$NEW" >> "$GITHUB_OUTPUT"
+          echo "Publishing as version : $NEW"
+          echo "newver=$NEW" >> "$GITHUB_OUTPUT"
 
-    # 4. commit, tag (force-update if CI re-runs), push
-    - name: Commit, tag & push
-      run: |
-        git config user.name  "$GIT_USER_NAME"
-        git config user.email "$GIT_USER_EMAIL"
+      # 4. commit, tag (force-update if CI re-runs), push
+      - name: Commit, tag & push
+        run: |
+          git config user.name  "$GIT_USER_NAME"
+          git config user.email "$GIT_USER_EMAIL"
 
-        git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
-        git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀" || echo "Nothing to commit"
+          git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
+          git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀" || echo "Nothing to commit"
 
-        git tag -f ${{ steps.bump.outputs.newver }}
-        git push origin main --tags --force-with-lease
+          git tag -f ${{ steps.bump.outputs.newver }}
+          git push origin main --tags --force-with-lease
 
-    # 5. publish to CocoaPods
-    - name: Publish to CocoaPods Trunk
-      run: |
-        echo "$POD_TRUNK_TOKEN" \
-          | pod trunk register ios@nexaguard.com 'CI Bot' --description='CI' || true
-        pod trunk push NexaGuardSDK.podspec --allow-warnings --skip-tests --verbose
+      # 5. publish to CocoaPods
+      - name: Publish to CocoaPods Trunk
+        run: |
+          echo "$POD_TRUNK_TOKEN" | \
+            pod trunk register ios@nexaguard.com 'CI Bot' --description='CI' || true
+          pod trunk push NexaGuardSDK.podspec --allow-warnings --skip-tests --verbose
