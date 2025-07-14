@@ -6,13 +6,19 @@ on:
     paths:
     - "NexaGuardSDK.xcframework/**"
     - "NexaGuardSDK.podspec"
-    - ".github/workflows/publish-pod.yml" # edits to this file re-trigger
-  workflow_dispatch:
-    # manual “Run workflow” button
+    - ".github/workflows/publish-pod.yml" # edits to this file re‑trigger the workflow
+  workflow_dispatch: {} # manual “Run workflow” button
+
+# ──────────────────────────────────────────────────────────────
+# Prevent concurrent runs on the same ref (avoids tag/branch races)
+# ──────────────────────────────────────────────────────────────
+concurrency:
+  group: ios-pod-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   publish:
-    runs-on: macos-13 # macOS runner gives you codesign & Xcode CLI
+    runs-on: macos-13 # macOS runner gives codesign & Xcode CLI
 
     env:
       POD_TRUNK_TOKEN: ${{ secrets.POD_TRUNK_TOKEN }}
@@ -20,18 +26,14 @@ jobs:
       GIT_USER_EMAIL: ios@nexaguard.com
 
     steps:
-    # ──────────────────────────────────────────────────────────────
-    # 1. checkout full history (tags included)
-    # ──────────────────────────────────────────────────────────────
+    # 1. Checkout full history (tags included)
     - name: Checkout repo
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0
+        fetch-depth: 0 # need full history for tag queries
 
-    # ──────────────────────────────────────────────────────────────
-    # 2. strip existing codesign blobs and re-sign the slice we ship
-    # ──────────────────────────────────────────────────────────────
-    - name: Strip _CodeSignature & re-sign
+    # 2. Strip existing codesign blobs and re‑sign the slice we ship
+    - name: Strip _CodeSignature & re‑sign
       run: |
         echo "▶︎ Cleaning signatures"
         rm -rf build && mkdir build
@@ -40,19 +42,14 @@ jobs:
         cd build
         # remove *all* stale signature folders
         find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
-        # re-sign the two inner frameworks
-        codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
-        codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
         cd ..
 
         # replace the xcframework in repo root
         rm -rf NexaGuardSDK.xcframework
         mv build/NexaGuardSDK.xcframework .
 
-    # ──────────────────────────────────────────────────────────────
-    # 3. bump the podspec version until it’s unique
-    # ──────────────────────────────────────────────────────────────
-    - name: Auto-bump podspec version
+    # 3. Auto‑bump the podspec version until it’s unique
+    - name: Auto‑bump podspec version
       id: bump
       run: |
         CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
@@ -71,9 +68,7 @@ jobs:
         echo "Publishing as version : $NEW"
         echo "newver=$NEW" >> "$GITHUB_OUTPUT"
 
-    # ──────────────────────────────────────────────────────────────
-    # 4. commit, tag (force-update if CI re-runs), push
-    # ──────────────────────────────────────────────────────────────
+    # 4. Commit, tag (force‑update if CI re‑runs) & atomic push
     - name: Commit, tag & push
       run: |
         git config user.name  "$GIT_USER_NAME"
@@ -83,20 +78,17 @@ jobs:
         git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀" \
           || echo "Nothing to commit"
 
-        # keep our bump on top of the latest main
-        git fetch origin main
-        git rebase origin/main   # or: git pull --rebase origin main
+        # always replay on top of the latest main in case someone just pushed
+        git pull --rebase origin main
 
-        # tag may already exist – force-update it safely
+        # tag may already exist – force‑update it safely
         git tag -f ${{ steps.bump.outputs.newver }}
 
-        # push branch and tag (branch with lease, tag forced)
-        git push origin HEAD:main --force-with-lease
-        git push origin refs/tags/${{ steps.bump.outputs.newver }} --force
+        # one atomic push for branch + tag, protected by --force-with-lease
+        git push --atomic --force-with-lease origin HEAD:main \
+                   refs/tags/${{ steps.bump.outputs.newver }}
 
-    # ──────────────────────────────────────────────────────────────
-    # 5. publish to CocoaPods
-    # ──────────────────────────────────────────────────────────────
+    # 5. Publish to CocoaPods
     - name: Publish to CocoaPods Trunk
       run: |
         echo "$POD_TRUNK_TOKEN" \

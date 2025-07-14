@@ -1,27 +1,37 @@
 #!/usr/bin/env bash
-# push.sh  —  Add, commit, and push in one go
-# Usage:
-#   ./push.sh "your commit message"
-#   ./push.sh                        # → opens $EDITOR for message
-
+# File: /Users/cybexo/Desktop/NexaGuardSDK-CocoaPods/push.sh
+# Add‑commit‑rebase‑push in one go ─ robust against CI‑generated commits & tags
 set -euo pipefail
 
-msg="${1:-}"
+msg=${1:-}
 
-# 1. stage everything
-git add .
+# ----------------------------------------------------------------------
+# 0.   Make sure we see everything that exists on GitHub first
+# ----------------------------------------------------------------------
+git fetch --tags --prune origin            # grabs commits *and* tags
 
-# 2. commit (with dynamic message)
+# ----------------------------------------------------------------------
+# 1.   Stage *all* changes (feel free to refine if you only want subsets)
+# ----------------------------------------------------------------------
+git add -A
+
+# ----------------------------------------------------------------------
+# 2.   Commit with the user‑supplied message or drop into $EDITOR
+# ----------------------------------------------------------------------
 if [[ -n "$msg" ]]; then
   git commit -m "$msg"
 else
-  # no message passed – open editor for interactive commit
   git commit
 fi
 
-# 3. push to current branch / set upstream if first time
-branch=$(git rev-parse --abbrev-ref HEAD)
-git push -u origin "$branch"
+# ----------------------------------------------------------------------
+# 3.   Replay our new commit(s) on top of the latest remote copy
+#      ▶︎ This is the step your earlier script missed.
+# ----------------------------------------------------------------------
+git rebase --autostash origin/main
 
-# 4. coming soon!
-
+# ----------------------------------------------------------------------
+# 4.   Push *branch + tags* in one atomic request, but only if remote
+#      hasn’t progressed in the meantime (“with‑lease” safety net)
+# ----------------------------------------------------------------------
+git push --follow-tags --atomic --force-with-lease origin HEAD:main
