@@ -24,45 +24,48 @@ jobs:
 
       - name: Strip _CodeSignature & re-sign
         run: |
-            echo "▶︎ Cleaning signatures"
-            rm -rf build && mkdir build
-            cp -R NexaGuardSDK.xcframework build/
-            cd build
-            find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
-            codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
-            codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
-            rm -rf ../NexaGuardSDK.xcframework
-            mv NexaGuardSDK.xcframework ..
-            cd ..
-  
-            - name: Auto-bump podspec version
+          echo "▶︎ Cleaning signatures"
+          rm -rf build && mkdir build
+          cp -R NexaGuardSDK.xcframework build/
+          cd build
+          find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
+          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
+          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
+          cd ..
+          mv build/NexaGuardSDK.xcframework .
+
+      # ──────────────────────────────
+      #  bump the version **outside** of any run block
+      # ──────────────────────────────
+      - name: Auto-bump podspec version
         id: bump
         run: |
-            CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
-            LATEST=$(git tag --list --sort=-v:refname | head -n1)
-  
-            BASE_VERSION=$CURRENT
-            if [ "$LATEST" = "$CURRENT" ]; then
-              IFS='.' read -r MAJ MIN PAT <<< "$CURRENT"
-              BASE_VERSION="${MAJ}.${MIN}.$((PAT+1))"
-            fi
-  
-            echo "newver=$BASE_VERSION" >> "$GITHUB_OUTPUT"
-            echo "→ bumping $CURRENT → $BASE_VERSION"
-            sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$BASE_VERSION'/" NexaGuardSDK.podspec
-  
-            - name: Commit, tag & push
+          CURRENT=$(grep -E "s.version.*=" NexaGuardSDK.podspec | awk -F"'" '{print $2}')
+          LATEST=$(git tag --list --sort=-v:refname | head -n1)
+
+          NEW="$CURRENT"
+          if [ "$LATEST" = "$CURRENT" ]; then
+            IFS='.' read -r MAJ MIN PAT <<< "$CURRENT"
+            NEW="${MAJ}.${MIN}.$((PAT+1))"
+            sed -i '' "s/s.version[[:space:]]*=.*/s.version          = '$NEW'/" NexaGuardSDK.podspec
+          fi
+
+          echo "Bumping podspec   : $CURRENT → $NEW"
+          echo "newver=$NEW" >> "$GITHUB_OUTPUT"
+
+      - name: Commit, tag & push
         run: |
-            git config user.name  "$GIT_USER_NAME"
-            git config user.email "$GIT_USER_EMAIL"
-  
-            git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
-            git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀"
-  
-            git tag ${{ steps.bump.outputs.newver }}
-            git push origin main --tags
-  
-            - name: Publish to CocoaPods Trunk
+          git config user.name  "$GIT_USER_NAME"
+          git config user.email "$GIT_USER_EMAIL"
+
+          git add NexaGuardSDK.xcframework NexaGuardSDK.podspec
+          git commit -m "iOS ${{ steps.bump.outputs.newver }} – automated release 🚀"
+
+          # create / update the tag, then push
+          git tag -f ${{ steps.bump.outputs.newver }}
+          git push origin main --tags --force-with-lease
+
+      - name: Publish to CocoaPods Trunk
         run: |
-            echo "$POD_TRUNK_TOKEN" | pod trunk register ios@nexaguard.com 'CI Bot' --description='CI' || true
-            pod trunk push NexaGuardSDK.podspec --allow-warnings --skip-tests --verbose
+          echo "$POD_TRUNK_TOKEN" | pod trunk register ios@nexaguard.com 'CI Bot' --description='CI' || true
+          pod trunk push NexaGuardSDK.podspec --allow-warnings --skip-tests --verbose
