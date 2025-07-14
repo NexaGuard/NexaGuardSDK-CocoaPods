@@ -6819,14 +6819,21 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "StringLiteral",
-      "offset": 850,
-      "length": 79,
-      "value": "\"[PendingConsentStore] specialFeatureConsent changed: \""
+      "offset": 853,
+      "length": 21,
+      "value": "\"PendingConsentStore\""
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "StringLiteral",
-      "offset": 928,
+      "offset": 876,
+      "length": 57,
+      "value": "\"specialFeatureConsent changed: \""
+    },
+    {
+      "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
+      "kind": "StringLiteral",
+      "offset": 932,
       "length": 2,
       "value": "\"\""
     },
@@ -6840,7 +6847,7 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "Dictionary",
-      "offset": 1050,
+      "offset": 1055,
       "length": 3,
       "value": "[]"
     },
