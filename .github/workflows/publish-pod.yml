@@ -33,8 +33,6 @@ jobs:
 
           cd build
           find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
-          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
-          codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
           cd ..
 
           # replace the xcframework in repo root
