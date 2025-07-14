@@ -26,16 +26,20 @@ jobs:
 
     # 2. strip existing codesign blobs and re-sign the slice we ship
     - name: Strip _CodeSignature & re-sign
-      run: |
-        echo "▶︎ Cleaning signatures"
-        rm -rf build && mkdir build
-        cp -R NexaGuardSDK.xcframework build/
-        cd build
-        find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
-        codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
-        codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
-        cd ..
-        mv build/NexaGuardSDK.xcframework .
+  run: |
+    echo "▶︎ Cleaning signatures"
+    rm -rf build && mkdir build
+    cp -R NexaGuardSDK.xcframework build/
+
+    cd build
+    find NexaGuardSDK.xcframework -name _CodeSignature -type d -exec rm -rf {} +
+    codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64/*.framework
+    codesign --force --sign - NexaGuardSDK.xcframework/ios-arm64_x86_64-simulator/*.framework
+    cd ..
+
+    # 🔽 NEW – remove the old copy before moving the new one in place
+    rm -rf NexaGuardSDK.xcframework
+    mv build/NexaGuardSDK.xcframework .
 
     # 3. bump the podspec version until it’s unique
     - name: Auto-bump podspec version
