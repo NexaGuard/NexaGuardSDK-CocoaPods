@@ -13,13 +13,14 @@ Pod::Spec.new do |s|
   s.author           = { 'NexaGuard' => 'ios@nexaguard.com' }
   s.source           = { :git => 'https://github.com/NexaGuard/NexaGuardSDK-CocoaPods.git',
                          :tag => s.version.to_s }
+  s.documentation_url = 'https://developer.nexaguard.com/'
 
   # ---- Platform / Swift ----------------------------------------------------
   s.ios.deployment_target = '13.0'
   s.swift_version         = '5.10'
 
   # ---- Build settings ------------------------------------------------------
-  # s.source_files  = 'cmp/cmp/**/*.{swift,h,m}'
+  s.source_files = ''
   # s.public_header_files = 'cmp/cmp/NexaGuardSDK.h'
 
     # The binary lives in the repo root

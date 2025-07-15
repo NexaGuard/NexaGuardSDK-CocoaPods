@@ -1,3 +1,4 @@
+
 # NexaGuard CMP SDK for iOS (`NexaGuardSDK`)
 
 **Privacy‑first, IAB‑TCF v2.2/GPP–compliant Consent Management Platform — in one tiny Swift package.**
@@ -6,8 +7,8 @@
 
 ## ✨ Highlights
 
-|                           |                                                                                  |
-| ------------------------- | -------------------------------------------------------------------------------- |
+|                         |                                                                                |
+|-------------------------|--------------------------------------------------------------------------------|
 | **🚀 Drop‑in UI**         | Modern banner **+** second layer with light/dark auto‑theme & rounded corners.   |
 | **🔒 Reg‑tech inside**    | Generates full *Core* + *Disclosed / Allowed* TC‑String, CMP ID **471**.         |
 | **📶 Offline‑first**      | Bundles last GVL snapshot & works without network after first launch.            |
@@ -30,16 +31,15 @@
 ### CocoaPods *(recommended)*
 
 ```ruby
-pod 'NexaGuardSDK', '~> 1.0'
+pod 'NexaGuardSDK', '~> 1.0'
 ```
 
 Then `pod install` – done.
 
 ### Manual (XCFramework)
 
-1. Clone this repo.
-2. Run `./build_xcframework.sh` → *NexaGuardSDK.xcframework* appears at repo root.
-3. Drag the XCFramework into **Build Phases ▸ Frameworks, Libraries & Embedded Content** → *Embed & Sign*.
+1. [Download the latest `NexaGuardSDK.xcframework`](https://github.com/NexaGuard/NexaGuardSDK-CocoaPods/releases) from the Releases page of this repository.
+2. Drag the `.xcframework` into your Xcode project under **Frameworks, Libraries & Embedded Content** (*Embed & Sign*).
 
 ---
 
@@ -101,7 +101,7 @@ extension UIApplication {
 ## 🛠 API cheat‑sheet
 
 | Method                                                 | Use‑case                                               |
-| ------------------------------------------------------ | ------------------------------------------------------ |
+|--------------------------------------------------------|--------------------------------------------------------|
 | `acceptAllSelections()`                                | Accept all purposes & vendors (second‑layer shortcut). |
 | `rejectAllSelections()`                                | Reject all.                                            |
 | `applyCustomSelections(purposes:[Int], vendors:[Int])` | Persist selections from your custom UI.                |
@@ -118,13 +118,12 @@ extension UIApplication {
 
 ## 🤝 Support
 
-- **Docs:** [https://docs.nexaguard.com/ios](https://docs.nexaguard.com/ios)
-- **Dashboard:** [https://dashboard.nexaguard.com](https://dashboard.nexaguard.com)
-- **Email:** [ios@nexaguard.com](mailto\:ios@nexaguard.com)
+- **Docs:** [https://developer.nexaguard.com/ios](https://developer.nexaguard.com/ios)
+- **Dashboard:** [https://app.nexaguard.com](https://app.nexaguard.com)
+- **Email:** [ios@nexaguard.com](mailto:ios@nexaguard.com)
 
 > 📨 We reply within one business day – usually faster.
 
 ---
 
 © 2025 **NexaGuard Inc.**  All rights reserved.
-
