@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.swift_version         = '5.10'
 
   # ---- Build settings ------------------------------------------------------
-  s.source_files = ''
+  # s.source_files = ''
   # s.public_header_files = 'cmp/cmp/NexaGuardSDK.h'
 
     # The binary lives in the repo root
