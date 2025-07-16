@@ -4269,6 +4269,56 @@
           },
           {
             "kind": "Function",
+            "name": "encodeDisclosedVendorsSegment",
+            "printedName": "encodeDisclosedVendorsSegment(allowedVendorIds:gvlVendorIds:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12NexaGuardSDK11NXGCMPUtilsO29encodeDisclosedVendorsSegment16allowedVendorIds03gvljK0SSSaySiG_AGtFZ",
+            "mangledName": "$s12NexaGuardSDK11NXGCMPUtilsO29encodeDisclosedVendorsSegment16allowedVendorIds03gvljK0SSSaySiG_AGtFZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "decodeTCString",
             "printedName": "decodeTCString(_:)",
             "children": [
@@ -6798,56 +6848,56 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "Dictionary",
-      "offset": 453,
+      "offset": 456,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "Dictionary",
-      "offset": 543,
+      "offset": 546,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "Dictionary",
-      "offset": 654,
+      "offset": 657,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "StringLiteral",
-      "offset": 853,
+      "offset": 823,
       "length": 21,
       "value": "\"PendingConsentStore\""
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "StringLiteral",
-      "offset": 876,
+      "offset": 846,
       "length": 57,
       "value": "\"specialFeatureConsent changed: \""
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "StringLiteral",
-      "offset": 932,
+      "offset": 902,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "Dictionary",
-      "offset": 809,
+      "offset": 779,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/PendingConsentStore.swift",
       "kind": "Dictionary",
-      "offset": 1055,
+      "offset": 1023,
       "length": 3,
       "value": "[]"
     },
@@ -6875,28 +6925,28 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/SpecialFeatureConsentStore.swift",
       "kind": "StringLiteral",
-      "offset": 430,
+      "offset": 240,
       "length": 29,
       "value": "\"specialFeatureMasterChanged\""
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/SpecialFeatureConsentStore.swift",
       "kind": "StringLiteral",
-      "offset": 585,
+      "offset": 334,
       "length": 29,
       "value": "\"specialFeatureVendorChanged\""
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/SpecialFeatureConsentStore.swift",
       "kind": "Dictionary",
-      "offset": 891,
+      "offset": 647,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/state\/SpecialFeatureConsentStore.swift",
       "kind": "Dictionary",
-      "offset": 1041,
+      "offset": 797,
       "length": 3,
       "value": "[]"
     },
@@ -7323,7 +7373,7 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NexaGuardCMP.swift",
       "kind": "BooleanLiteral",
-      "offset": 14741,
+      "offset": 15751,
       "length": 5,
       "value": "false"
     },
