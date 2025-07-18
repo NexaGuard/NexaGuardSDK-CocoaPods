@@ -146,6 +146,10 @@ public enum ConsentAction : Swift.Equatable {
 }
 @_hasMissingDesignatedInitializers public class NexaGuardCMP {
   public static let shared: NexaGuardSDK.NexaGuardCMP
+  public static var lastAdStorage: Swift.String?
+  public static var lastAnalyticsStorage: Swift.String?
+  public static var lastAdUserData: Swift.String?
+  public static var lastAdPersonalization: Swift.String?
   public func initialize(settingsId: Swift.String, completion: (() -> Swift.Void)? = nil)
   public func acceptAllSelections()
   public func rejectAllSelections()
