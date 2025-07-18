@@ -150,6 +150,7 @@ public enum ConsentAction : Swift.Equatable {
   public static var lastAnalyticsStorage: Swift.String?
   public static var lastAdUserData: Swift.String?
   public static var lastAdPersonalization: Swift.String?
+  public var consentModeListener: ((Swift.String, Swift.String, Swift.String, Swift.String) -> Swift.Void)?
   public func initialize(settingsId: Swift.String, completion: (() -> Swift.Void)? = nil)
   public func acceptAllSelections()
   public func rejectAllSelections()
