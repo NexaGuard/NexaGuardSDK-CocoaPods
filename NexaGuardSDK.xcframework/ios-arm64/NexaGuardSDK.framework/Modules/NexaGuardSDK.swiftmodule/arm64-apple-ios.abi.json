@@ -6245,6 +6245,49 @@
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "postAnalyticsSessionEvent",
+            "printedName": "postAnalyticsSessionEvent(settingsId:deviceId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12NexaGuardSDK12NXGAPIServerC25postAnalyticsSessionEvent10settingsId06deviceJ0ySS_SSSgtFZ",
+            "mangledName": "$s12NexaGuardSDK12NXGAPIServerC25postAnalyticsSessionEvent10settingsId06deviceJ0ySS_SSSgtFZ",
+            "moduleName": "NexaGuardSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -7399,21 +7442,21 @@
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NexaGuardCMP.swift",
       "kind": "BooleanLiteral",
-      "offset": 19492,
+      "offset": 19675,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NXGAPIServer.swift",
       "kind": "StringLiteral",
-      "offset": 149,
+      "offset": 147,
       "length": 27,
       "value": "\"https:\/\/cdn.nexaguard.com\""
     },
     {
       "filePath": "\/Users\/cybexo\/Desktop\/NexaGuardSDK-iOS\/cmp\/cmp\/NXGAPIServer.swift",
       "kind": "StringLiteral",
-      "offset": 203,
+      "offset": 201,
       "length": 10,
       "value": "\"gvl.json\""
     }

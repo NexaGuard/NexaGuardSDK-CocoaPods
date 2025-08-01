@@ -161,6 +161,7 @@ public enum ConsentAction : Swift.Equatable {
   public static func fetchGVL(completion: @escaping ([Swift.String : Any]?) -> Swift.Void)
   public static func initializeCache()
   public static func clearCache()
+  public static func postAnalyticsSessionEvent(settingsId: Swift.String, deviceId: Swift.String? = nil)
   @objc deinit
 }
 extension NexaGuardSDK.NxgLogLevel : Swift.Equatable {}
